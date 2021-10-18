@@ -1,0 +1,209 @@
+---
+title: "Mini Data-Analysis Deliverable 1"
+output: github_document
+author: "Yue Shen"
+date: "2021/10/06"
+---
+
+# Welcome to Yue Shen's first-ever data analysis project!
+
+1. Install the [`datateachr`](https://github.com/UBC-MDS/datateachr) package by typing the following into your **R terminal**:
+
+```
+#11install.packages("devtools")
+devtools::install_github("UBC-MDS/datateachr")
+```
+
+2. Load the packages below.
+
+```{r}
+library(datateachr)
+library(tidyverse)
+```
+
+
+# Learning Objectives
+
++ Become familiar with your dataset of choosing
++ Think of 4 questions that you would like to answer with your data
++ Generate a reproducible and clear report using R Markdown
+
+# Task 1: Choose your favorite dataset (10 points)
+
+1.1 Out of the 7 datasets available in the `datateachr` package, choose **4** that appeal to you based on their description. Write your choices below:
+
+1: cancer_sample    
+2: flow_sample    
+3: steam_games    
+4: vancouver_trees    
+
+1.2 One way to narrowing down your selection is to *explore* the datasets. Use your knowledge of dplyr to find out at least *3* attributes about each of these datasets (an attribute is something such as number of rows, variables, class type...). The goal here is to have an idea of *what the data looks like*. 
+
+To explore those datasets, I use some of the functions below to print relative informations:
+ - function ```class()``` to find out the class type of dataset.
+ - function ```glimpse()``` to explore the number of rows, cols and some details of data content. 
+ - function ```dim()``` to print the number of rows and cols.
+ - function ```variable.names()``` to find out all variables' name of dataset.
+ - function ```head()``` to print the first 6 lines of data.
+
+
+### cancer_sample
+```{r}
+class(cancer_sample)
+```
+```{r}
+glimpse(cancer_sample)
+```
+
+### flow_sample
+```{r}
+class(flow_sample)
+```
+
+```{r}
+dim(flow_sample)
+```
+
+```{r}
+head(flow_sample)
+```
+
+### steam_games
+```{r}
+class(steam_games)
+```
+
+```{r}
+dim(steam_games)
+```
+
+
+```{r}
+variable.names(steam_games)
+```
+
+```{r}
+steam_games
+```
+
+
+### vancouver_trees
+```{r}
+class(vancouver_trees)
+```
+
+```{r}
+dim(vancouver_trees)
+```
+
+```{r}
+vancouver_trees
+```
+
+1.3 Now that you've explored the 4 datasets that you were initially most interested in, let's narrow it down to 2. What lead you to choose these 2? Briefly explain your choices below, and feel free to include any code in your explanation. 
+
+My choices of 2 : ```steam_games``` and  ```vancouver_trees```, here are the reasons below:
+- For dataset ```cancer_sample```, I found that most of the variables' datatype are numbers and only contain one string type. Since I want to have more variables with different kinds of datatype , I didn't choose ```cancer_sample```
+- For dataset ```flow_sample```, it only has 7 columns and one of them are all ```N/A``` value, hence I feel it couldn't provide me enough data points to do my analysis.
+
+
+
+1.4 Time for the final decision! Going back to the beginning, it's important to have an *end goal* in mind. For example, if I had chosen the `titanic` dataset for my project, I might've wanted to explore the relationship between survival and other variables. Try to think of 1 research question that you would want to answer with each dataset. Note them down below, and make your final choice based on what seems more interesting to you!
+
+For dataset ```vancouver_trees```, my research question is "how many trees are there for each street block"?
+For dataset ```steam_games```, my research question is "I want to figure out all steam games with very positive reviews and order them by the total number of reviews".
+
+Since later I found out that the reviews in the ```steam_games``` are mixed with numbers and level of reviews represented as strings, I don't feel it's convenient to do this kind of research.
+
+Hence my final choice is ```vancouver_trees```
+
+
+
+# Task 2: Exploring your dataset (15 points)
+
+2.1 Complete *4 out of the following 8 exercises* to dive deeper into your data. All datasets are different and therefore, not all of these tasks may make sense for your data - which is why you should only answer *4*. Use *dplyr* and *ggplot*.
+
+1. Plot the distribution of a numeric variable.
+2. Create a new variable based on other variables in your data (only if it makes sense)
+3. Investigate how many missing values there are per variable. Can you find a way to plot this?
+4. Explore the relationship between 2 variables in a plot.
+5. Filter observations in your data according to your own criteria. Think of what you'd like to explore - again, if this was the `titanic` dataset, I may want to narrow my search down to passengers born in a particular year...
+6. Use a boxplot to look at the frequency of different observations within a single variable. You can do this for more than one variable if you wish!
+7. Make a new tibble with a subset of your data, with variables and observations that you are interested in exploring.
+8. Use a density plot to explore any of your variables (that are suitable for this type of plot).
+
+2.2 For each of the 4 exercises that you complete, provide a *brief explanation* of why you chose that exercise in relation to your data (in other words, why does it make sense to do that?), and sufficient comments for a reader to understand your reasoning and code.
+
+# Task 3: Write your research questions (5 points)
+
+So far, you have chosen a dataset and gotten familiar with it through exploring the data. Now it's time to figure out 4 research questions that you would like to answer with your data! Write the 4 questions and any additional comments at the end of this deliverable. These questions are not necessarily set in stone - TAs will review them and give you feedback; therefore, you may choose to pursue them as they are for the rest of the project, or make modifications!
+
+<!--- *****START HERE***** --->
+
+## 1. Plot the distribution of a numeric variable
+I want to know the tendency of how many trees are planted during those years, hence I plot the distributions of variable ```date_planted```.
+As we can see in the figure plotted, most of the trees are planted between year 1995 to 2015.
+
+```{r}
+exercise1 <- ggplot(vancouver_trees, aes(date_planted)) +
+   geom_histogram(bins = 30)
+print(exercise1)
+```
+
+
+## 2. Create a new variable based on other variables in your data 
+I noticed there is a variable ```diameter``` in the dataset and with unit "meter", hence I decide to create another variable named ```radius_cm``` whose unit is "centimeter".
+When showing the new data, I select them in the order of ```tree_id```, ```diameter```, ```radius_cm``` and everything else in the dataset.
+
+```{r}
+exercise2 <- vancouver_trees %>%
+    mutate(radius_cm = diameter/2 * 100) %>%
+    select(tree_id, diameter, radius_cm, everything())
+head(exercise2)
+```
+
+
+
+
+## 3. Investigate how many missing values there are per variable. Can you find a way to plot this?
+When exporing the dataset ```vancouver_trees```, I found there were some missing values in several columns like cultivar_name, date_planted, longitude and latitude. I think it would be interesting and useful to find out the count of missing values for each column.
+
+The following lines of code generate a dataframe that shows the column name and its count of missing values. 
+In order to plot the data frame generated, I joined the unamed row names to the dataframe.
+```{r}
+na_count <- sapply(vancouver_trees, function(x) sum(length(which(is.na(x)))))
+na_count <- data.frame(na_count) %>%  filter(na_count != 0)
+na_count <- cbind(rownames(na_count), na_count)
+names(na_count)[1] <- paste("column_name")
+na_count
+```
+
+After getting the dataframe above, I use ```ggplot``` and ```geom_col()``` to plot the bar chat.
+
+```{r}
+exercise3 <- ggplot(na_count, aes(column_name, na_count)) +
+   geom_col()
+print(exercise3)
+```
+
+
+## 8. Use a density plot to explore any of your variables 
+I want to figure out for different kinds of street side, what's the density of tree's height range id.
+The following lines of code plot the figure, which distinguishs street side by color.
+
+```{r}
+exercise8  <- ggplot(vancouver_trees, aes(height_range_id)) + 
+    geom_density(aes(color = street_side_name))
+print(exercise8)
+```
+
+## My Four Research Questions
+- How many trees are planted in different street?
+   - Does a particular street have more trees than others?
+- what's the relationship between latitude and species of trees
+   - Are trees with a specific same species planted in a range of latitude?
+- What's the relationship between tree's diameter and its genus? 
+   - Are trees with a specific same genus have longer diameter? 
+- What's the relationship between date_planted and neighbourhood_name?
+   - For different neighbourhood, what range of years have the highest frequency of planting trees?
+
