@@ -1,7 +1,7 @@
 
 Author: Yue Shen   
 
-Date Updated: 2021/10/26
+Date Updated: 2021/10/28
 
 
 **Hi all, welcome to UBC STAT545 mini data analysis project!**
@@ -60,13 +60,7 @@ git clone https://github.com/stat545ubc-2021/mda-SylvieShen.git
 
 
 
-# List of Folders
-
-- Milestone1
-- Milestone2
-- Milestone3
-- output 
-   - contains the files generated from Milestone3.
+# List of Files
 
 Each folder with name ```MilestoneX``` (```X``` could be number of 1, 2 or 3, indicating the number of milestone) will contain the following files:
 
@@ -76,5 +70,6 @@ Each folder with name ```MilestoneX``` (```X``` could be number of 1, 2 or 3, in
 
  - ```mini-data-analysis-X_files```: folders containing all graphs in different ```.Rmd``` files.
 
+Output folder contains the files generated from Milestone3.
 
 Hope you enjoy the project! :blush:
