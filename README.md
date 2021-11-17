@@ -1,12 +1,12 @@
 
 Author: Yue Shen   
 
-Date Updated: 2021/10/28
+Date Updated: 2021/11/16
 
 
-**Hi all, welcome to UBC STAT545 mini data analysis project!**
+**Hi all, welcome to UBC STAT545A&B mini data analysis project**
 
-# Introduction
+# Introduction - Mini Data Analysis Project
 
 This is a data analysis project aimed for learning R programming. 
 
@@ -46,6 +46,21 @@ please refer to the following course links to explore more informations:
 - [x] [Milestone 2](https://stat545.stat.ubc.ca/mini-project/mini-project-2/)
 - [x] [Milestone 3](https://stat545.stat.ubc.ca/mini-project/mini-project-3/)
 
+
+# Introduction - Assignments
+
+## Assignment1
+
+Covers making a function in R, documenting it, and testing it.
+
+## Assignment2
+
+Wrap functions in an R package, using Devtools, Auto-testing, Licenses, etc.
+
+Please refer to the following course links to explore more informations:
+
+- [x] [Assignment1](https://stat545.stat.ubc.ca/assignments/assignment-b1/)
+- [ ] [Assignment2](https://stat545.stat.ubc.ca/assignments/assignment-b2/)
 
 # How to Download and Run
 
