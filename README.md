@@ -4,15 +4,22 @@ Author: Yue Shen
 Date Updated: 2021/11/16
 
 
-**Hi all, welcome to UBC STAT545A&B mini data analysis project**
+**Hi all, welcome to UBC STAT545A&B course works!**
 
-# Introduction - Mini Data Analysis Project
+[STAT545A - Mini Data Analysis Project](#545a)
+
+[STAT545A - Worksheets](https://github.com/SylvieShen/Data-Analysis-Using-R/tree/main/worksheets)
+
+[STAT545B - Assignments](#545b)
+
+<a name="545a"></a>
+## Introduction - Mini Data Analysis Project
 
 This is a data analysis project aimed for learning R programming. 
 
 There are 3 milestones of this project:
 
-## Milestone 1
+### Milestone 1
 
 - Become familiar with the dataset.
 
@@ -20,7 +27,7 @@ There are 3 milestones of this project:
 
 - Generate a reproducible and clear report using R Markdown.
 
-## Milestone 2
+### Milestone 2
 
 - Become familiar with manipulating and summarizing your data in tibbles using ```dplyr``` and ```tidyr```, with a research question in mind.
 
@@ -30,7 +37,7 @@ There are 3 milestones of this project:
 
 - Gain a greater understanding of how to use R to answer research questions about your data.
 
-## Milestone 3
+### Milestone 3
 
 - Manipulating special data types in R: factors and/or dates and times.
 
@@ -46,14 +53,14 @@ please refer to the following course links to explore more informations:
 - [x] [Milestone 2](https://stat545.stat.ubc.ca/mini-project/mini-project-2/)
 - [x] [Milestone 3](https://stat545.stat.ubc.ca/mini-project/mini-project-3/)
 
+<a name="545b"></a>
+## Introduction - Assignments
 
-# Introduction - Assignments
-
-## Assignment1
+### Assignment1
 
 Covers making a function in R, documenting it, and testing it.
 
-## Assignment2
+### Assignment2
 
 Wrap functions in an R package, using Devtools, Auto-testing, Licenses, etc.
 
@@ -62,7 +69,7 @@ Please refer to the following course links to explore more informations:
 - [x] [Assignment1](https://stat545.stat.ubc.ca/assignments/assignment-b1/)
 - [ ] [Assignment2](https://stat545.stat.ubc.ca/assignments/assignment-b2/)
 
-# How to Download and Run
+## How to Download and Run
 
 - Open your terminal and git clone the our code in the main branch to your local folder.
 ```
